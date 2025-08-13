@@ -3,27 +3,37 @@ import java.util.Scanner;
 
 
 public class Assignment22 {
+    public static void main(String[] args) {
+        ifDasarDanNested(90);
+        looping100();
+        tryCatch();
+    }
+    
     public static void ifDasarDanNested(int angka) {
         System.out.println("------------ no.1 if Dasar dan nested ---------");
 
-//        int angka = 1000;
-
-            // If dasar --> jika angka 60 sampai 100 maka cetak lulus
+            // If dasar --> jika range 60 sampai 100 maka dinyatakan lulus
             if (angka >= 60 && angka <= 100) {
-                System.out.println("Lulus");
+                System.out.println("Nilai = " + angka + "\nSelamat! Anda Lulus");
+            //range 0 - 59 = dinyatakan tidak lulus
+            } else if (angka >= 0 && angka < 60) {
+                System.out.println("Nilai = " + angka + "\nMaaf, Anda Tidak Lulus");
+            //selain range 0-100 maka input nilai dianggap tidak benar.
+            } else {
+                System.out.println("Mohon inputkan nilai dengan benar.");
             }
 
             // If bertingkat (nested if / if di dalam if)
             if (angka >= 60 && angka <=100 ) {
-                if (angka >= 85) { // jika sama atau lebih dari 85 cetak Nilai sangat baik
+                if (angka >= 85) { // jika nilai di range 85-100 cetak Nilai sangat baik
                     System.out.println("Nilai sangat baik");
-                } else {
+                } else { // jika range 60-84 maka cetak Nilai cukup baik
                     System.out.println("Nilai cukup baik");
                 }
-            } else if (angka < 0 || angka > 100) {
-                System.out.println("Input angka tidak valid");
+            } else if (angka >= 0 && angka < 60) { //jika nilai di range 0 - 59 maka nilai di bawah standard minimum
+                System.out.println("Nilai belum mencapai batas minimum");
             } else {
-                System.out.println("Tidak lulus");
+                System.out.println("Input angka tidak valid"); //input nilai di luar range 0-100
             }
     }
 
@@ -42,10 +52,10 @@ public class Assignment22 {
             Scanner scanner = new Scanner(System.in);
 
             try {
-                System.out.print("Masukkan angka pertama: ");
+                System.out.print("Masukkan angka pertama: "); //input angka pertama
                 int a = scanner.nextInt();
 
-                System.out.print("Masukkan angka kedua: ");
+                System.out.print("Masukkan angka kedua: "); //input angka kedua
                 int b = scanner.nextInt();
 
                 int hasil = a / b;
@@ -61,12 +71,4 @@ public class Assignment22 {
                 System.out.println("Program selesai.");
             }
         }
-
-
-    public static void main(String[] args) {
-        ifDasarDanNested(60);
-        looping100();
-        tryCatch();
-
-    }
 }
